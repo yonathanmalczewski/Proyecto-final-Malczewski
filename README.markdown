@@ -48,7 +48,7 @@ El metodo es Post
 * Link: http://127.0.0.1:8000/blogapp/logout
 
 # Pagina para editar datos de usuario (Requiere Login)
-Se pueden cambiar el mail, password, nombre y apellido
+Se pueden cambiar el mail, password, nombre y apellido.
 
 * Link: http://127.0.0.1:8000/blogapp/perfil/
 
