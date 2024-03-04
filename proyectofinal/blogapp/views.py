@@ -125,7 +125,7 @@ def login_request(request):
             
     form = AuthenticationForm()
 
-    return render(request, "usuario_login.html", {"form": form})
+    return render(request, "usuario_login.html", {'form': form})
 
 @login_required
 def editar_perfil(request):
@@ -133,34 +133,34 @@ def editar_perfil(request):
 
     if request.method == "POST":
         formulario = UserEditForm(request.POST)
-        print(f"editar_perfil -- POST")
+        print("editar_perfil -- POST")
         if formulario.is_valid():
             informacion = formulario.cleaned_data
 
-            print(f"email: {informacion.get("email")}")
-            usuario.email = informacion.get("email")
-            print(f"last_name: {informacion.get("last_name")}")
-            usuario.last_name = informacion.get("last_name")
-            print(f"first_name: {informacion.get("first_name")}")
-            usuario.first_name = informacion.get("first_name")
+            print(f"email: {informacion.get('email')}")
+            usuario.email = informacion.get('email')
+            print(f"last_name: {informacion.get('last_name')}")
+            usuario.last_name = informacion.get('last_name')
+            print(f"first_name: {informacion.get('first_name')}")
+            usuario.first_name = informacion.get('first_name')
 
-            print(f"password1: {informacion.get("password1")}")
+            print(f"password1: {informacion.get('password1')}")
 
             usuario.save()
 
             return redirect('index')
 
 
-    print(f"editar_perfil -- GET")
-    formulario = UserEditForm(initial={"first_name": usuario.first_name,
-                                       "last_name": usuario.last_name,
-                                        "email": usuario.email,})
+    print("editar_perfil -- GET")
+    formulario = UserEditForm(initial={'first_name': usuario.first_name,
+                                       'last_name': usuario.last_name,
+                                        'email': usuario.email,})
     
     # Se quitan las Passwords para que no se cambien
     #formulario.fields.pop('password1', None)
     #formulario.fields.pop('password2', None)
 
-    return render(request, "usuario_editar.html", {"form": formulario}) 
+    return render(request, "usuario_editar.html", {'form': formulario}) 
 
 @login_required
 def avatar(request):
@@ -192,5 +192,5 @@ def avatar(request):
 
     formulario = AvatarFormulario()
 
-    return render(request, 'usuario_avatar.html', {"form": formulario})
+    return render(request, 'usuario_avatar.html', {'form': formulario})
 # END SECCIÓN USUARIOS
